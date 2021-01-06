@@ -33,7 +33,7 @@ open class ParallaxViewActions<T: UIView> where T: ParallaxableView {
         becomeFocused = { [weak self] (view: T, context, coordinator) in
             self?.beforeBecomeFocusedAnimation?(view)
 
-            if #available(tvOS 11.0, *) {
+            if #available(tvOS 11.0, iOS 11.0, *) {
                 coordinator.addCoordinatedFocusingAnimations(
                     { (context) in
                         self?.setupFocusedState?(view)
@@ -55,7 +55,7 @@ open class ParallaxViewActions<T: UIView> where T: ParallaxableView {
         resignFocus = { [weak self] (view: T, context, coordinator) in
             self?.beforeResignFocusAnimation?(view)
 
-            if #available(tvOS 11.0, *) {
+            if #available(tvOS 11.0, iOS 11.0, *) {
                 coordinator.addCoordinatedUnfocusingAnimations(
                     { (context) in
                         view.removeParallaxMotionEffects(with: view.parallaxEffectOptions)
